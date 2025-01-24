@@ -13,6 +13,19 @@ nav {
   min-height: 85vh;
 }
 
+.hero::after {
+  content: "";
+  position: absolute;
+  background: rgba(0, 0, 0, 0.538);
+  /* top: 0; */
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-content {
+  z-index: 2;
+}
 .content {
   margin-top: 5rem;
 }

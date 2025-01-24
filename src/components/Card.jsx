@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ movieObj }) => {
+const Card = ({ movieObj, handleOnDelete }) => {
   const { Title, imdbRating, Poster, Plot } = movieObj;
   return (
     <div className="container movie-card">
@@ -22,7 +22,9 @@ const Card = ({ movieObj }) => {
           </div>
 
           <div className="d-grid mt-2">
-            <button className="btn btn-danger">Delete</button>
+            <button className="btn btn-danger" onClick={handleOnDelete}>
+              Delete
+            </button>
           </div>
         </div>
       </div>
