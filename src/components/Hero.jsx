@@ -3,7 +3,7 @@ import Card from "./Card";
 import { fetchData } from "./axios";
 import { randomChar } from "./randomChar";
 
-const Hero = () => {
+const Hero = ({ addToList }) => {
   const [movieObj, setMovieObj] = useState({});
 
   const [bgImg, setBgImg] = useState("");
@@ -12,6 +12,10 @@ const Hero = () => {
     const movie = await fetchData(str);
     setMovieObj(movie);
     setBgImg(movie.Poster);
+  };
+  const addMovieList = (mood) => {
+    addToList({ ...movieObj, mood });
+    setMovieObj({});
   };
 
   useEffect(() => {
@@ -72,7 +76,11 @@ const Hero = () => {
           </div>
           {Object.keys(movieObj).length > 0 ? (
             <div className="movie-card-display">
-              <Card movieObj={movieObj} handleOnDelete={handleOnDelete} />
+              <Card
+                movieObj={movieObj}
+                handleOnDelete={handleOnDelete}
+                addMovieList={addMovieList}
+              />
             </div>
           ) : null}
         </div>
